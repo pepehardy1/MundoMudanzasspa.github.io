@@ -1,0 +1,1244 @@
+/* ===========================
+   VARIABLES Y COLORES GLOBALES
+   =========================== */
+:root {
+    --color-primary: #000000;      /* Negro */
+    --color-secondary: #ffffff;    /* Blanco */
+    --color-green-dark: #396943;   /* Verde oscuro del logo */
+    --color-green-bright: #68ab38; /* Verde brillante del logo */
+    --color-light: #f8f9fa;        /* Gris muy claro */
+    --color-text: #2d3436;         /* Texto oscuro */
+    --font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', sans-serif;
+    --transition: all 0.3s ease;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-secondary);
+}
+
+/* Social Sidebar */
+.social-sidebar {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-icon.instagram {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.social-icon.instagram:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 18px rgba(102, 126, 234, 0.4);
+}
+
+.social-icon.facebook {
+    background-color: #1877f2;
+    color: white;
+    font-weight: bold;
+}
+
+.social-icon.facebook:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 18px rgba(24, 119, 242, 0.4);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    padding: 5px;
+}
+
+.logo-text {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--color-secondary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--color-green-bright);
+}
+
+.hero {
+    background: linear-gradient(135deg, var(--color-green-dark) 0%, var(--color-green-dark) 70%, #d4af37 100%);
+    color: var(--color-secondary);
+    padding: 100px 20px;
+    text-align: center;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    margin-bottom: 0;
+}
+
+.hero-image {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+@keyframes moveHorizontal {
+    0%, 100% {
+        transform: translateX(-100px);
+    }
+    50% {
+        transform: translateX(100px);
+    }
+}
+
+.hero-image img {
+    max-width: 150px;
+    width: 100%;
+    height: auto;
+    animation: moveHorizontal 4s ease-in-out infinite;
+}
+
+.hero-content h1 {
+    font-size: 3.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    animation: fadeInDown 1s ease-out;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.btn-primary {
+    background-color: var(--color-green-bright);
+    color: var(--color-secondary);
+    border: none;
+    padding: 16px 50px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: var(--transition);
+    box-shadow: 0 6px 20px rgba(104, 171, 56, 0.4);
+    animation: fadeInUp 1s ease-out 0.4s both;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-green-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(104, 171, 56, 0.4);
+}
+
+.stats {
+    background-color: var(--color-light);
+    padding: 50px 20px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-size: 3.5rem;
+    color: var(--color-green-bright);
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+}
+
+.circular-progress {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: conic-gradient(
+        var(--color-green-bright) 0deg,
+        var(--color-green-bright) calc(var(--percentage) * 3.6deg),
+        #e0e0e0 calc(var(--percentage) * 3.6deg)
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    padding: 8px;
+}
+
+.progress-value {
+    width: 124px;
+    height: 124px;
+    border-radius: 50%;
+    background: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--color-green-dark);
+    text-align: center;
+}
+
+.progress-ring {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 1rem;
+}
+
+.progress-ring-bg {
+    fill: none;
+    stroke: #e0e0e0;
+    stroke-width: 6;
+}
+
+.progress-ring-fill {
+    fill: none;
+    stroke: var(--color-green-bright);
+    stroke-width: 6;
+    stroke-dasharray: 314.159; /* 2 * π * 50 */
+    stroke-dashoffset: calc(314.159 - (314.159 * var(--percentage) / 100));
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 60px 60px;
+    transition: stroke-dashoffset 0.6s ease;
+}
+
+.progress-text {
+    font-size: 20px;
+    font-weight: bold;
+    fill: var(--color-green-dark);
+    text-anchor: middle;
+}
+
+.stat-item p {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.como-funciona {
+    padding: 80px 20px;
+    background-color: var(--color-secondary);
+}
+
+.como-funciona h2,
+.testimonios h2,
+.servicios h2,
+.por-que-elegirnos h2,
+.cta-final h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+    font-weight: 800;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.quote-mark {
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.servicios .subtitle {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+
+
+.pasos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.paso-card {
+    background-color: var(--color-light);
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: var(--transition);
+    border-top: 4px solid #d4af37;
+}
+
+.paso-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(104, 171, 56, 0.2);
+}
+
+.paso-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-color: #d4af37;
+    color: var(--color-secondary);
+    border-radius: 50%;
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+}
+
+.paso-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.paso-card p {
+    color: #666;
+    line-height: 1.8;
+}
+
+.testimonios {
+    padding: 80px 20px;
+    background-color: var(--color-light);
+}
+
+.testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.testimonio-card {
+    background-color: var(--color-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 4px solid #d4af37;
+}
+
+.testimonio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.stars {
+    color: var(--color-green-bright);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial-text {
+    color: var(--color-text);
+    font-style: italic;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.testimonal-author {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.servicios {
+    padding: 40px 20px;
+    background-color: var(--color-secondary);
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.servicio-card {
+    background-color: var(--color-light);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.servicio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(104, 171, 56, 0.2);
+    background-color: var(--color-secondary);
+    border-top: 4px solid var(--color-green-bright);
+}
+
+.servicio-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.servicio-card h3 {
+    color: var(--color-green-dark);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.servicio-card p {
+    color: #666;
+    line-height: 1.8;
+}
+
+.por-que-elegirnos {
+    padding: 80px 20px;
+    background-color: var(--color-light);
+}
+
+.razones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.razon-item {
+    background-color: var(--color-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    transition: var(--transition);
+    border-left: 4px solid var(--color-green-bright);
+    box-shadow: var(--shadow);
+}
+
+.razon-item:hover {
+    background-color: var(--color-green-dark);
+    color: var(--color-secondary);
+    transform: translateX(10px);
+}
+
+.razon-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-green-bright);
+    color: var(--color-secondary);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.razon-item h3 {
+    color: var(--color-green-dark);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.razon-item:hover h3 {
+    color: var(--color-secondary);
+}
+
+.razon-item p {
+    color: #666;
+}
+
+.razon-item:hover p {
+    color: var(--color-secondary);
+}
+
+.cta-final {
+    background: linear-gradient(135deg, var(--color-green-bright) 0%, var(--color-green-dark) 100%);
+    color: var(--color-secondary);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.cta-final h2 {
+    color: var(--color-secondary);
+}
+
+.cta-final p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-green-dark);
+    border: none;
+    padding: 16px 50px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: var(--transition);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-light);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Formulario de Cotización */
+.formulario-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, var(--color-light) 0%, var(--color-secondary) 100%);
+}
+
+.formulario-section h2 {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.formulario-section .subtitle {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.cotizacion-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--color-secondary);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.9rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-green-bright);
+    box-shadow: 0 0 0 3px rgba(104, 171, 56, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
+}
+
+.cotizacion-form button {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.footer {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    padding: 50px 20px 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--color-green-bright);
+}
+
+.footer-section p {
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+    opacity: 0.8;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+   =========================== */
+
+/* Tablets (768px y menores) */
+@media (max-width: 768px) {
+    .navbar .container {
+        padding: 0.8rem 15px;
+    }
+
+    .logo-img {
+        height: 45px;
+        padding: 4px;
+    }
+
+    .logo-text {
+        font-size: 1.1rem;
+    }
+
+    .nav-links {
+        gap: 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .como-funciona h2,
+    .testimonios h2,
+    .servicios h2,
+    .por-que-elegirnos h2,
+    .cta-final h2 {
+        font-size: 2.2rem;
+    }
+
+    .cotizacion-form {
+        padding: 2.5rem;
+    }
+
+    .form-row {
+        gap: 1.5rem;
+    }
+
+    .pasos-grid,
+    .servicios-grid,
+    .testimonios-grid,
+    .razones-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .stat-item h3 {
+        font-size: 2.8rem;
+    }
+}
+
+/* Móviles grandes (600px y menores) */
+@media (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .como-funciona h2,
+    .testimonios h2,
+    .servicios h2,
+    .por-que-elegirnos h2,
+    .cta-final h2 {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .navbar .container {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 0.7rem 15px;
+    }
+
+    .logo {
+        width: 100%;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .logo-img {
+        height: 40px;
+        padding: 3px;
+    }
+
+    .logo-text {
+        font-size: 1rem;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: 0.8rem;
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .hero {
+        padding: 60px 20px;
+        min-height: 45vh;
+    }
+
+    .hero-image img {
+        max-width: 140px;
+    }
+
+    .pasos-grid,
+    .servicios-grid,
+    .testimonios-grid,
+    .razones-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .paso-number {
+        width: 70px;
+        height: 70px;
+        font-size: 2.2rem;
+    }
+
+    .paso-card {
+        padding: 2rem;
+    }
+
+    .paso-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .servicio-icon {
+        font-size: 2.8rem;
+    }
+
+    .servicio-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .testimonio-card {
+        padding: 1.8rem;
+    }
+
+    .testimonial-text {
+        font-size: 0.98rem;
+    }
+
+    .cotizacion-form {
+        padding: 2rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 0.98rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 14px 45px;
+        font-size: 1rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .razon-item {
+        padding: 1.8rem;
+    }
+
+    .razon-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+
+    .razon-item h3 {
+        font-size: 1rem;
+    }
+
+    .stat-item h3 {
+        font-size: 2.3rem;
+    }
+
+    .progress-ring {
+        width: 120px;
+        height: 120px;
+    }
+
+    .progress-text {
+        font-size: 18px;
+    }
+
+    .social-sidebar {
+        right: 12px;
+        gap: 12px;
+    }
+
+    .social-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.3rem;
+    }
+}
+
+/* Móviles pequeños (480px y menores) */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .como-funciona h2,
+    .testimonios h2,
+    .servicios h2,
+    .por-que-elegirnos h2,
+    .cta-final h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .nav-links {
+        gap: 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .logo-img {
+        height: 40px;
+    }
+
+    .logo-text {
+        font-size: 1rem;
+    }
+
+    .hero {
+        padding: 50px 15px;
+        min-height: 40vh;
+    }
+
+    .hero-image img {
+        max-width: 120px;
+    }
+
+    .pasos-grid,
+    .servicios-grid,
+    .testimonios-grid,
+    .razones-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .paso-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .paso-card {
+        padding: 1.5rem;
+    }
+
+    .paso-card h3 {
+        font-size: 1rem;
+    }
+
+    .paso-card p {
+        font-size: 0.9rem;
+    }
+
+    .servicio-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .servicio-card {
+        padding: 1.5rem;
+    }
+
+    .servicio-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .servicio-card p {
+        font-size: 0.9rem;
+    }
+
+    .testimonio-card {
+        padding: 1.5rem;
+    }
+
+    .testimonial-text {
+        font-size: 0.93rem;
+    }
+
+    .testimonal-author {
+        font-size: 0.9rem;
+    }
+
+    .cotizacion-form {
+        padding: 1.5rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.7rem;
+        font-size: 0.95rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 12px 35px;
+        font-size: 0.95rem;
+    }
+
+    .footer {
+        padding: 40px 15px 20px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .footer-section h3 {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .footer-section p {
+        font-size: 0.85rem;
+    }
+
+    .footer-bottom {
+        font-size: 0.8rem;
+        padding-top: 15px;
+    }
+
+    .razon-item {
+        padding: 1.5rem;
+    }
+
+    .razon-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .razon-item h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .razon-item p {
+        font-size: 0.85rem;
+    }
+
+    .stat-item h3 {
+        font-size: 1.8rem;
+    }
+
+    .stat-item p {
+        font-size: 0.85rem;
+    }
+
+    .progress-ring {
+        width: 100px;
+        height: 100px;
+    }
+
+    .progress-text {
+        font-size: 15px;
+    }
+
+    .social-sidebar {
+        right: 35px;
+        top: 50%;
+        gap: 8px;
+    }
+
+    .social-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+    }
+
+    .stars {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .quote-mark {
+        font-size: 1.1rem;
+    }
+
+    .cta-final {
+        padding: 50px 15px;
+    }
+
+    .cta-final p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .formulario-section {
+        padding: 60px 15px;
+    }
+
+    .formulario-section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .como-funciona,
+    .testimonios,
+    .por-que-elegirnos {
+        padding: 60px 15px;
+    }
+
+    .servicios {
+        padding: 40px 15px;
+    }
+
+    .stats {
+        padding: 40px 15px;
+    }
+
+    .hero-image {
+        margin-top: 1.5rem;
+    }
+}
+
+/* Ultra pequeños (menos de 360px) */
+@media (max-width: 360px) {
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .como-funciona h2,
+    .testimonios h2,
+    .servicios h2,
+    .por-que-elegirnos h2,
+    .cta-final h2 {
+        font-size: 1.3rem;
+    }
+
+    .nav-links {
+        font-size: 0.8rem;
+        gap: 0.4rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 10px 30px;
+        font-size: 0.9rem;
+    }
+
+    .paso-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .razon-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .progress-ring {
+        width: 90px;
+        height: 90px;
+    }
+
+    .progress-text {
+        font-size: 13px;
+    }
+}
